@@ -1,0 +1,19 @@
+require 'spec_helper'
+
+describe 'User API' do 
+  let(:request_headers) {
+    { "Accept" => "application/json", "Content-Type" => "application/json" }
+  }
+
+  let(:user_params) { 
+    { user: { email: 'bob@bob.com', password: 'bob' } }.to_json
+  }
+
+  it 'allows you sign up' do 
+    post '/api/users', user_params, request_headers
+
+    expect(response).to be_success
+
+    expect(User.last.email).to eq('bob@bob.com')
+  end
+end
