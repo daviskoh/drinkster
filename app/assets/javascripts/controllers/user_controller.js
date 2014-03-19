@@ -1,3 +1,3 @@
-UserCtrl = function($scope) {
-  return $scope.title = "Drinkster via the UserCtrl";
+this.UserCtrl = function($scope) {
+  $scope.title = 'ello';
 };
