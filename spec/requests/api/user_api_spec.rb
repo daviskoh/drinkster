@@ -9,6 +9,10 @@ describe 'User API' do
     { user: { email: 'bob@bob.com', password: 'bob' } }.to_json
   }
 
+  after :each do
+    User.destroy_all
+  end
+
   it 'allows you sign up' do 
     post '/api/users', user_params, request_headers
 
