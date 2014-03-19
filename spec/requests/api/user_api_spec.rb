@@ -37,7 +37,9 @@ describe 'User API' do
 
     expect(response).to be_success
 
-    expect(response.body.email).to eq('bob@bob.com')
+    resp = JSON.parse response.body
+
+    expect(resp['email']).to eq('bob@bob.com')
   end
 
   it 'denies access to unauthorized'
