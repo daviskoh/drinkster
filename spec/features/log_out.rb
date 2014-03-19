@@ -10,8 +10,8 @@ describe 'log out', js: true do
   end
 
   it 'allows a user to log out' do
-    within 'nav' do 
-      expect(page).to have_content 'Log In'
-    end
+    click_link 'Log Out'
+
+    expect(page).to have_content 'Log In'
   end
 end
