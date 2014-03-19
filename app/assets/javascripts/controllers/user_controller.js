@@ -1,4 +1,4 @@
-Drinkster.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
+Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
   $scope.getData = function() {
     return {
       'user': {
@@ -13,6 +13,8 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
     $http.post('/api/users.json', $scope.getData()).success(function() {
       console.log('post SUCCESS');
       console.log(arguments);
+
+      $location.path('/session/new');
     });
   };
 }]);

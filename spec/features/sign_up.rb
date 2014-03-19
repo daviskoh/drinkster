@@ -3,13 +3,7 @@ require 'spec_helper'
 describe 'sign up', js: true do 
   before :each do
     visit '/user/new'
-  end
 
-  after :each do 
-    User.destroy_all
-  end
-
-  it 'should create a new user' do
     within 'form.new-user' do 
       fill_in :email, with: 'bob@bob.com'
       fill_in :password, with: 'bob'
@@ -17,10 +11,22 @@ describe 'sign up', js: true do
 
       click_button 'Sign Up'
     end
+  end
 
+  after :each do 
+    User.destroy_all
+  end
+
+  it 'should create a new user' do
     # buggy PG connection thus must envoke User before calling necessary info
     User.count
 
     expect(User.last.email).to eq('bob@bob.com')
+  end
+
+  it 'should redirect to log in page' do 
+    within 'div.large-6' do 
+      expect(page).to have_content 'Log In'
+    end
   end
 end
