@@ -18,9 +18,14 @@ Drinkster.config(['$routeProvider', '$locationProvider', '$httpProvider',
 
     $routeProvider.
       when('/user/new', {
-        templateUrl: '../assets/new.html',
+        templateUrl: '../assets/user/new.html',
         controller: 'UserCtrl',
         controllerAs: 'user'
+      }).
+      when('/session/new', {
+        templateUrl: '../assets/session/new.html',
+        controller: 'SessionCtrl',
+        controllerAs: 'session'
       }).
       otherwise({
         templateUrl: '../assets/new.html',
