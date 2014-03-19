@@ -6,7 +6,7 @@ describe 'sign up', js: true do
   end
 
   after :each do 
-    User.destory_all
+    User.destroy_all
   end
 
   it 'should create a new user' do
@@ -17,6 +17,9 @@ describe 'sign up', js: true do
 
       click_button 'Sign Up'
     end
+
+    # buggy PG connection thus must envoke User before calling necessary info
+    User.count
 
     expect(User.last.email).to eq('bob@bob.com')
   end
