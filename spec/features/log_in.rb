@@ -6,17 +6,12 @@ describe 'log in', js: true do
 
     FactoryGirl.create :user
 
-    visit '/session/new'
+    user_login
   end
 
   it 'allows a user to log in' do
-    within 'form.sign-in' do 
-      fill_in :email, with: 'bob@bob.com'
-      fill_in :password, with: 'bob'
-
-      click_button 'Sign In'
-    end
-
     expect(page).to have_content 'Log Out'
   end
+
+  it "redirects to the user's page"
 end

@@ -4,7 +4,7 @@ module LoginSpecHelper
 
     within 'form.sign-in' do 
       fill_in :email, with: "bob@bob.com"
-      fill_in :password, with: "Bob"
+      fill_in :password, with: "bob"
     end
 
     click_button 'Sign In'
