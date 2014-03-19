@@ -13,7 +13,6 @@ describe 'log in', js: true do
     within 'form.sign-in' do 
       fill_in :email, with: 'bob@bob.com'
       fill_in :password, with: 'bob'
-      fill_in :password_confirmation, with: 'bob'
 
       click_button 'Sign In'
     end
