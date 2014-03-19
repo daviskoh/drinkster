@@ -6,7 +6,10 @@ describe 'User API' do
   }
 
   let(:user_params) { 
-    { user: { email: 'bob@bob.com', password: 'bob' } }.to_json
+    { user: {
+      email: 'bob@bob.com', password: 'bob', password_confirmation: 'bob'
+      }
+    }.to_json
   }
 
   after :each do
