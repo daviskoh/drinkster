@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticated!, except: [:create]
+
   def create
     @user = User.new(user_params)
 
@@ -7,6 +9,10 @@ class UsersController < ApplicationController
     else
       render status: :unprocessable_entity
     end
+  end
+
+  def show
+    render json: secure_user
   end
 
   private

@@ -13,5 +13,7 @@ describe 'log in', js: true do
     expect(page).to have_content 'Log Out'
   end
 
-  it "redirects to the user's page"
+  it "redirects to the user's page" do 
+    expect(page).to have_content 'Welcome bob@bob.com'
+  end
 end
