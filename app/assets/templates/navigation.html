@@ -1,0 +1,27 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#" id='main-logo'><span class='logo'>Drinkster</span></a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class='left'>
+    </ul>
+
+    <ul class="right">
+      <li class="divider"></li>
+
+      <li><a href="/" id='home-nav'><i class='fi-home'></i> Home</a></li>
+
+      <li class="divider"></li>
+      <li ng-show='!isLoggedIn()'><a href="/session/new"><i class='fi-torso'></i>Log In</a></li>
+      <li ng-show='!isLoggedIn()' class="divider"></li>
+      <li ng-show='!isLoggedIn()'><a href="/user/new"><i class='fi-torso'></i>Create Account</a></li>
+      <li ng-show='!isLoggedIn()' class="divider"></li>
+
+      <li ng-show='isLoggedIn()'><a href="/session/new"><i class='fi-torso'></i>Log Out</a></li>
+    </ul>
+  </section>
+</nav>
