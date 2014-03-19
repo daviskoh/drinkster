@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
+    binding.pry
 
-    if @user.save
-      render json: secure_user.as_json, status: 200
-    else
-      render status: :unprocessable_entity
-    end
+    # if @user.save
+    #   render json: secure_user.as_json, status: 200
+    # else
+    #   render status: :unprocessable_entity
+    # end
   end
 
   private

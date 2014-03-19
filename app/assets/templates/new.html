@@ -4,11 +4,11 @@
 
     <form class='new-user'>
       <fieldset>
-        <input type="email" name='email' placeholder='Email'>
-        <input type="password" name='password' placeholder='Password'>
-        <input type="password" name='password_confirmation' placeholder='Password Confirmation'>
+        <input type="email" name='email' placeholder='Email' ng-model='email'>
+        <input type="password" name='password' placeholder='Password' ng-model='password'>
+        <input type="password" name='password_confirmation' placeholder='Password Confirmation' ng-model='passwordConfirmation'>
 
-        <button>Sign Up</button>
+        <button ng-click='createUser()'>Sign Up</button>
       </fieldset>
     </form>
   </div>
