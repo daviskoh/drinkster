@@ -31,6 +31,12 @@ describe 'Session API' do
   it 'prevents login using wrong credentials' do 
     post '/api/session', wrong_user_params, request_headers
 
-     expect(response.status).to eq 400
+    expect(response.status).to eq 400
+  end
+
+  it 'allows a user to logout' do 
+    delete '/api/session', user_params, request_headers
+
+    expect(response).to be_success
   end
 end

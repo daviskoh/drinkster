@@ -10,4 +10,9 @@ class SessionsController < ApplicationController
       render json: {"text" => 'Incorrect email and password combination'}, status: 400
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    render text: 'logged out', status: 204
+  end
 end

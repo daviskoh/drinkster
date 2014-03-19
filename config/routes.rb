@@ -4,7 +4,7 @@ Drinkster::Application.routes.draw do
   scope 'api' do 
     resources :users, only: [:create]
 
-    resource :session, only: [:create]
+    resource :session, only: [:create, :destroy]
   end
 
   match '*path', to: 'main#index', via: :get
