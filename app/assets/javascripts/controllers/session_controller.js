@@ -1,4 +1,4 @@
-Drinkster.controller('SessionCtrl', ['$scope', '$http', function($scope, $http) {
+Drinkster.controller('SessionCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
   $scope.getData = function() {
     return {
       'email': $scope.email,

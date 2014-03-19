@@ -11,9 +11,7 @@ describe 'log out', js: true do
 
   it 'allows a user to log out' do
     within 'nav' do 
-      click_button 'Log Out'
+      expect(page).to have_content 'Log In'
     end
-
-    expect(page).to have_content 'Sign In'
   end
 end
