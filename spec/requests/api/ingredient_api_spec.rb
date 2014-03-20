@@ -50,7 +50,11 @@ describe 'User API' do
     expect(User.find(id).ingredients.last.name).to eq 'whiskey'
   end
 
-  it 'denies unauthorized adding'
+  it 'denies unauthorized adding' do 
+    post "/api/users/#{User.last.id}/ingredients", ingredient_params, request_headers
+
+    expect(User.last).to have(0).ingredients
+  end
 
   it 'allows you to remove an ingredient'
 
