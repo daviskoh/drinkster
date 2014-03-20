@@ -33,7 +33,6 @@ Drinkster.config(['$routeProvider', '$locationProvider', '$httpProvider',
         controllerAs: 'user'
       }).
       otherwise({
-        templateUrl: '../assets/new.html',
-        controller: 'UserCtrl'
+        redirectTo: '/session/new'
       });
   }]);
