@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'sign up', js: true do 
+  after :all do 
+    User.destroy_all
+  end
+
   before :each do
     visit '/users/new'
 
