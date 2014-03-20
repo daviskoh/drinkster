@@ -58,11 +58,14 @@ describe 'User API' do
   end
 
   it 'denies unauthorized removing' do 
-    user = FactoryGirl.create(:user)
-    user.ingredients << FactoryGirl.create(:ingredient)
+    add_ingredient_manually
 
     remove_ingredient
 
-    expect(user).to have(1).ingredients
+    expect(@user).to have(1).ingredients
+  end
+
+  it 'allows retrieval of a user\'s ingredients' do 
+
   end
 end
