@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if @user.save
       render json: secure_user.as_json, status: 201
     else
-      render status: :unprocessable_entity
+      render text: 'unprocessable', status: :unprocessable_entity
     end
   end
 
