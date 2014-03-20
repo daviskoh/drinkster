@@ -7,6 +7,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
   gem 'simplecov', require: false
 end
 
