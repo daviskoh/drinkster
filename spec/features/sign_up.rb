@@ -17,7 +17,7 @@ describe 'sign up', js: true do
     # buggy PG connection thus must envoke User before calling necessary info
     User.count
 
-    sleep 1
+    sleep 3
 
     expect(User.last.email).to eq('d@d.com')
   end

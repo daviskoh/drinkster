@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'log in', js: true do 
   before :each do
+    create_user # seed test db w/ a user to facilitate all specs
     user_login
   end
 
