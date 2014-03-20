@@ -51,11 +51,18 @@ describe 'User API' do
     api_login
 
     add_ingredient
-    
+
     remove_ingredient
 
     expect(Ingredient.count).to eq 1
   end
 
-  it 'denies unauthorized removing'
+  it 'denies unauthorized removing' do 
+    user = FactoryGirl.create(:user)
+    user.ingredients << FactoryGirl.create(:ingredient)
+
+    remove_ingredient
+
+    expect(user).to have(1).ingredients
+  end
 end
