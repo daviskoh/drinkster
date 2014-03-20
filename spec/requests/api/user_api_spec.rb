@@ -1,19 +1,15 @@
 require 'spec_helper'
 
 describe 'User API' do 
-  let(:request_headers) {
-    { "Accept" => "application/json", "Content-Type" => "application/json" }
-  }
+  # let(:request_headers) {
+  #   { "Accept" => "application/json", "Content-Type" => "application/json" }
+  # }
 
   let(:user_params) { 
     { user: {
       email: 'bob@bob.com', password: 'bob', password_confirmation: 'bob'
       }
     }.to_json
-  }
-
-  let(:login_params) { 
-    { email: 'bob@bob.com', password: 'bob' }.to_json
   }
 
   before :each do 
@@ -35,7 +31,7 @@ describe 'User API' do
   it 'allows retrieval of specific user info' do 
     FactoryGirl.create :user
 
-    post '/api/session', login_params, request_headers
+    api_login
     get "/api/users/#{response.body}", {}, request_headers
     expect(response).to be_success
 

@@ -1,19 +1,11 @@
 require 'spec_helper'
 
 describe 'User API' do 
-  let(:request_headers) {
-    { "Accept" => "application/json", "Content-Type" => "application/json" }
-  }
-
   let(:user_params) { 
     { user: {
       email: 'bob@bob.com', password: 'bob', password_confirmation: 'bob'
       }
     }.to_json
-  }
-
-  let(:login_params) { 
-    { email: 'bob@bob.com', password: 'bob' }.to_json
   }
 
   let(:ingredient_params) {
@@ -32,7 +24,7 @@ describe 'User API' do
   end
 
   it 'allows you to add an ingredient' do 
-    post '/api/session', login_params, request_headers
+    api_login
 
     post "/api/users/#{response.body}/ingredients", ingredient_params, request_headers
 
@@ -41,7 +33,7 @@ describe 'User API' do
   end
 
   it 'allows you to add ingredient to personal list' do 
-    post '/api/session', login_params, request_headers
+    api_login
 
     id = response.body
 
