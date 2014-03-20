@@ -40,7 +40,17 @@ describe 'User API' do
     expect(resp['name']).to eq 'whiskey'
   end
 
-  it 'allows you to add ingredient to personal list' 
+  it 'allows you to add ingredient to personal list' do 
+    post '/api/session', login_params, request_headers
+
+    id = response.body
+
+    post "/api/users/#{id}/ingredients", ingredient_params, request_headers
+
+    resp = JSON.parse response.body
+
+    expect(User.find(id).ingredients.last.name).to eq 'whiskey'
+  end
 
   it 'denies unauthorized adding'
 
