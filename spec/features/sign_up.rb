@@ -10,9 +10,6 @@ describe 'sign up', js: true do
   end
 
   it 'should create a new user' do
-    # buggy PG connection thus must envoke User before calling necessary info
-    User.count
-
     expect(User.last.email).to eq('d@d.com')
   end
 
