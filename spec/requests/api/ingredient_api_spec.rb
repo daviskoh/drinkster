@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'User API' do 
-  let(:ingredient_params) {
-    { ingredient: { name: 'whiskey' } }.to_json
-  }
-
   before :each do
     Ingredient.destroy_all 
     User.destroy_all

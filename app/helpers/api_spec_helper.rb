@@ -10,6 +10,10 @@ module ApiSpecHelper
     }.to_json
   end
 
+  def ingredient_params
+    { ingredient: { name: 'whiskey' } }.to_json
+  end
+
   def api_login
     post '/api/session',
     { email: 'bob@bob.com', password: 'bob' }.to_json,
