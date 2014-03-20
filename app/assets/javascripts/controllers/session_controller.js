@@ -12,6 +12,9 @@ Drinkster.controller('SessionCtrl', ['$scope', '$http', '$location', function($s
       console.log(arguments);
 
       $scope.loggedIn = true;
+
+      // acquire user params
+      // redirect to /users/user.id
     });
   };
 

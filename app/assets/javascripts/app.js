@@ -17,7 +17,7 @@ Drinkster.config(['$routeProvider', '$locationProvider', '$httpProvider',
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 
     $routeProvider.
-      when('/user/new', {
+      when('/users/new', {
         templateUrl: '../assets/user/new.html',
         controller: 'UserCtrl',
         controllerAs: 'user'

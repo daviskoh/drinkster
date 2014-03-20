@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'sign up', js: true do 
   before :each do
-    visit '/user/new'
+    visit '/users/new'
 
     within 'form.new-user' do 
       fill_in :email, with: 'bob@bob.com'
