@@ -1,9 +1,6 @@
 Drinkster.factory('Auth', ['$http', '$location',
   function($http, $location) {
     return {
-      // setUserID: function(userID) {
-      //   currentUser = +userID;
-      // },
       isLoggedIn: function() {
         return window.currentUser ? true : false;
       },
