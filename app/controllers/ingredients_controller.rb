@@ -3,9 +3,11 @@ class IngredientsController < ApplicationController
     ingredient = Ingredient.new(ingredient_params)
 
     if ingredient.save
-      render json: ingredient.as_json(methods: :image_url), status: 200
+      current_user.ingredients << ingredient
+      
+      render json: ingredient, status: 200
     else
-      render json: ingredient.errors, status: :unprocessable_entity
+      render json: ingredient, status: :unprocessable_entity
     end
   end
 
