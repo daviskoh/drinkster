@@ -15,7 +15,8 @@ describe 'User API' do
   it 'allows you to add an ingredient' do 
     api_login
 
-    post "/api/users/#{response.body}/ingredients", ingredient_params, request_headers
+    # post "/api/users/#{response.body}/ingredients", ingredient_params, request_headers
+    post user_ingredients_path(response.body), ingredient_params, request_headers
 
     resp = JSON.parse response.body
     expect(resp['name']).to eq 'whiskey'
@@ -38,11 +39,11 @@ describe 'User API' do
   end
 
   it 'allows you to remove an ingredient' #do 
-  #   api_login
-  #   add_ingredient
+   #   api_login
+   #   add_ingredient
 
-  #   delete 
-  # end
+   #   delete "/api/users/#{User.last}/ingredients/#{Ingredient.last.id}"
+   # end
 
   it 'denies unauthorized removing'
 end

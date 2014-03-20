@@ -21,6 +21,6 @@ module ApiSpecHelper
   end
 
   def add_ingredient(userID = User.last.id)
-    post "/api/users/#{userID}/ingredients", self.ingredient_params, self.request_headers
+    post user_ingredients_path(userID), self.ingredient_params, self.request_headers
   end
 end
