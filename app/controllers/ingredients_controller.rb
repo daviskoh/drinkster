@@ -22,11 +22,4 @@ class IngredientsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
-
-  def authorized!
-    unless @user.id == session[:user_id]
-      render status: :unauthorized
-      return
-    end
-  end
 end

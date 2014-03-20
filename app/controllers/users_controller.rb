@@ -25,12 +25,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def authorized!
-    unless @user.id == session[:user_id]
-      return render text: 'not authorized', status: :unauthorized
-    end
-  end
-
   def secure_user
     {id: @user.id, email: @user.email}
   end
