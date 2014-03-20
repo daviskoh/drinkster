@@ -14,6 +14,7 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
+    # NOTE: hitting destroy action will NOT remove ingredient from db
     ingredient = Ingredient.find(params[:id])
 
     if @user.ingredients.delete(ingredient)
