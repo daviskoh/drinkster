@@ -16,7 +16,7 @@ class IngredientsController < ApplicationController
   def destroy
     ingredient = Ingredient.find(params[:id])
 
-    if ingredient.destroy
+    if @user.ingredients.delete(ingredient)
       render json: ingredient, status: 200
     else
       render status: 500
