@@ -16,12 +16,14 @@ describe 'add ingredient', js: true do
 
   it 'allows a user to add an ingredient' do 
     within 'form.add-ingredient' do 
-      fill_in :name, with: 'whiskey'
+      fill_in :ingredientName, with: 'whiskey'
 
       click_button 'Add Ingredient'
     end
 
-    expect(@user.ingredients.first.name).to eq 'whiskey'
+    sleep 2
+
+    expect(@user.ingredients.last.name).to eq 'whiskey'
   end
 
   it 'shows current user\'s ingredients'

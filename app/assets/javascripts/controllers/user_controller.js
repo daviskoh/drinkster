@@ -10,6 +10,14 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
       };
     };
 
+    $scope.getIngredientData = function() {
+      return {
+        'ingredient': {
+          'name': $scope.ingredientName
+        }
+      };
+    };
+
     $scope.createUser = function() {
       $http.post('/api/users.json', $scope.getUserData()).success(function() {
         console.log('post SUCCESS');
@@ -22,6 +30,9 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
     $scope.email = $rootScope.user;
 
     $scope.addIngredient = function() {
-
+      $http.post('/api/users/' + window.currentUser + '/ingredients.json', $scope.getIngredientData()).success(function() {
+        console.log('created Ingredient');
+        console.log(arguments);
+      });
     };
   }]);

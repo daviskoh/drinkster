@@ -27,7 +27,7 @@ class IngredientsController < ApplicationController
   private 
 
   def ingredient_params
-    params.require(:ingredient).permit(:name, :user_id)
+    params.require(:ingredient).permit(:name)
   end
 
   def set_user
