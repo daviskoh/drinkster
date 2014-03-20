@@ -40,7 +40,7 @@ describe 'User API' do
     expect(resp['name']).to eq 'whiskey'
   end
 
-  it 'allows you to add ingredient to personal list'
+  it 'allows you to add ingredient to personal list' 
 
   it 'denies unauthorized adding'
 
