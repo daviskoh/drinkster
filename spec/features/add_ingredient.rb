@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe 'add ingredient', js: true do 
-  before :each do
-    user_login
+  after :all do 
+    Ingredient.destroy_all
   end
 
-  after :each do 
-    Ingredient.destroy_all # precaution
+  before :each do
+    user_login
   end
 
   it 'allows a user to add an ingredient' do 
