@@ -3,7 +3,7 @@ Drinkster::Application.routes.draw do
 
   scope 'api' do 
     resources :users, only: [:create, :show] do 
-      resources :ingredients, only: [:create]
+      resources :ingredients, only: [:create, :destroy]
     end
 
     resource :session, only: [:create, :destroy]
