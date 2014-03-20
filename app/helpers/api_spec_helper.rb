@@ -20,7 +20,7 @@ module ApiSpecHelper
     { "Accept" => "application/json", "Content-Type" => "application/json" }
   end
 
-  def add_ingredient
-    post "/api/users/#{User.last.id}/ingredients", self.ingredient_params, self.request_headers
+  def add_ingredient(userID = User.last.id)
+    post "/api/users/#{userID}/ingredients", self.ingredient_params, self.request_headers
   end
 end
