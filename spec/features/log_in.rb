@@ -1,8 +1,15 @@
 require 'spec_helper'
 
 describe 'log in', js: true do 
+  before :all do 
+    FactoryGirl.create(:user)
+  end
+
+  after :all do 
+    User.destroy_all
+  end
+
   before :each do
-    create_user # seed test db w/ a user to facilitate all specs
     user_login
   end
 
