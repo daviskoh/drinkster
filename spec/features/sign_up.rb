@@ -5,9 +5,9 @@ describe 'sign up', js: true do
     visit '/users/new'
 
     within 'form.new-user' do 
-      fill_in :email, with: 'bob@bob.com'
-      fill_in :password, with: 'bob'
-      fill_in :password_confirmation, with: 'bob'
+      fill_in :email, with: 'd@d.com'
+      fill_in :password, with: 'd'
+      fill_in :password_confirmation, with: 'd'
 
       click_button 'Sign Up'
     end
@@ -17,7 +17,9 @@ describe 'sign up', js: true do
     # buggy PG connection thus must envoke User before calling necessary info
     User.count
 
-    expect(User.last.email).to eq('bob@bob.com')
+    sleep 1
+
+    expect(User.last.email).to eq('d@d.com')
   end
 
   it 'should redirect to log in page' do 

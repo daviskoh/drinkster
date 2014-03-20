@@ -2,10 +2,6 @@ require 'spec_helper'
 
 describe 'log in', js: true do 
   before :each do
-    User.destroy_all # accidentally preseeded?
-
-    FactoryGirl.create :user
-
     user_login
   end
 
