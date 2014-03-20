@@ -1,8 +1,13 @@
 require 'spec_helper'
 
 describe 'add ingredient', js: true do 
+  before :all do 
+    FactoryGirl.create(:user)
+  end
+
   after :all do 
     Ingredient.destroy_all
+    User.destroy_all
   end
 
   before :each do
