@@ -23,4 +23,13 @@ module ApiSpecHelper
   def add_ingredient(userID = User.last.id)
     post user_ingredients_path(userID), self.ingredient_params, self.request_headers
   end
+
+  def remove_ingredient(userID = User.last.id)
+    self.api_login
+    self.add_ingredient
+
+    resp = JSON.parse response.body
+
+    delete user_ingredient_path(userID, resp['id']), {}, self.request_headers
+  end
 end

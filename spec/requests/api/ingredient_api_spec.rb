@@ -38,19 +38,13 @@ describe 'User API' do
   end
 
   it 'allows you to remove an ingredient' do 
-    api_login
-    add_ingredient
-
-    delete user_ingredient_path(User.last.id, Ingredient.last.id), {}, request_headers
+    remove_ingredient
 
     expect(User.last.ingredients.count).to eq 0
   end
 
   it 'does not remove ingredient from db' do 
-    api_login
-    add_ingredient
-
-    delete user_ingredient_path(User.last.id, Ingredient.last.id), {}, request_headers
+    remove_ingredient
 
     expect(Ingredient.count).to eq 1
   end
