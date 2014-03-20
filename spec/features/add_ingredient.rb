@@ -1,18 +1,14 @@
 require 'spec_helper'
 
 describe 'add ingredient', js: true do 
+  let(:user) { FactoryGirl.create :user }
+
   before :each do
-    Ingredient.destroy_all
-    
-    User.destroy_all # accidentally preseeeded?
-
-    let(:user) { FactoryGirl.create :user }
-
     user_login
   end
 
   after :each do 
-    Ingredient.destroy_all
+    Ingredient.destroy_all # precaution
   end
 
   it 'allows a user to add an ingredient' do 
