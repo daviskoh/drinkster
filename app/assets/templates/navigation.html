@@ -1,4 +1,4 @@
-<nav class="top-bar">
+<nav class="top-bar" ng-controller="NavigationCtrl">
   <ul class="title-area">
     <li class="name">
       <h1><a href="#" id='main-logo'><span class='logo'>Drinkster</span></a></h1>
@@ -12,12 +12,12 @@
 
     <ul class="right">
       <li class="divider"></li>
-      <li ng-show='!isLoggedIn()'><a href="/session/new"><i class='fi-torso'></i>Log In</a></li>
-      <li ng-show='!isLoggedIn()' class="divider"></li>
-      <li ng-show='!isLoggedIn()'><a href="/users/new"><i class='fi-torso'></i>Create Account</a></li>
-      <li ng-show='!isLoggedIn()' class="divider"></li>
+      <li ng-show='!isLoggedIn'><a href="/session/new"><i class='fi-torso'></i>Log In</a></li>
+      <li ng-show='!isLoggedIn' class="divider"></li>
+      <li ng-show='!isLoggedIn'><a href="/users/new"><i class='fi-torso'></i>Create Account</a></li>
+      <li ng-show='!isLoggedIn' class="divider"></li>
 
-      <li ng-show='isLoggedIn()'><a href="/session/new"><i class='fi-torso'></i>Log Out</a></li>
+      <li ng-show='isLoggedIn'><a href="/session/new" ng-click="logOut()"><i class='fi-torso'></i>Log Out</a></li>
     </ul>
   </section>
 </nav>

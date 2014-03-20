@@ -1,6 +1,11 @@
-Drinkster.controller('NavigationCtrl', ['$scope', 'SessionCtrl',
-  function($scope, SessionCtrl) {
-    $scope.$watch( function () { return SessionCtrl.isLoggedIn(); }, function ( isLoggedIn ) {
+Drinkster.controller('NavigationCtrl', ['$scope', 'Auth',
+  function($scope, Auth) {
+    $scope.$watch( function() { return Auth.isLoggedIn(); }, function( isLoggedIn ) {
       $scope.isLoggedIn = isLoggedIn;
     });
+
+    $scope.logOut = function() {
+      console.log('logging Out');
+      Auth.logOut();
+    };
   }]);

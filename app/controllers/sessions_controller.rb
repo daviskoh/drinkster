@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    # binding.pry
     session[:user_id] = nil
     render text: 'logged out', status: 204
   end

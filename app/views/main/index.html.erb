@@ -1,5 +1,12 @@
+<%= logged_in? %>
+<% if logged_in? %>
+  <script>var currentUser = <%= session[:user_id] %></script>
+<% else %>
+  <script>var currentUser</script>
+<% end %>
+
 <!-- Angular layout / what gets 'stuffed' -->
 <!-- defines scope of specified controller in router -->
 <div ng-view>
-  
+
 </div>

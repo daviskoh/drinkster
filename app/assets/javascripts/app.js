@@ -1,5 +1,6 @@
 //= require_self
 //= require_tree ./controllers/.
+//= require_tree ./services/.
 
 var Drinkster = angular.module('Drinkster', [
   // module dependencies
@@ -36,3 +37,15 @@ Drinkster.config(['$routeProvider', '$locationProvider', '$httpProvider',
         redirectTo: '/session/new'
       });
   }]);
+
+Drinkster.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
+  $rootScope.$on('$routeChangeStart', function () {
+    if (!Auth.isLoggedIn()) {
+      console.log('DENY');
+
+      event.preventDefault();
+      
+      $location.path('/session/new');
+    }
+  });
+}]);
