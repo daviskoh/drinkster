@@ -19,4 +19,8 @@ module ApiSpecHelper
     { email: 'bob@bob.com', password: 'bob' }.to_json,
     { "Accept" => "application/json", "Content-Type" => "application/json" }
   end
+
+  def add_ingredient
+    post "/api/users/#{User.last.id}/ingredients", self.ingredient_params, self.request_headers
+  end
 end

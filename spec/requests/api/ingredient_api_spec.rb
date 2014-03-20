@@ -32,12 +32,14 @@ describe 'User API' do
   end
 
   it 'denies unauthorized adding' do 
-    post "/api/users/#{User.last.id}/ingredients", ingredient_params, request_headers
+    add_ingredient
 
     expect(User.last).to have(0).ingredients
   end
 
-  it 'allows you to remove an ingredient'
+  it 'allows you to remove an ingredient' do 
+
+  end
 
   it 'denies unauthorized removing'
 end
