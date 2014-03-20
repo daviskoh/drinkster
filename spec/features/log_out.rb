@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe 'log out', js: true do 
+  before :all do 
+    FactoryGirl.create(:user)
+  end
+
+  after :all do 
+    User.destroy_all
+  end
+  
   before :each do
     user_login
 
