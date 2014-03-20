@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe 'add ingredient', js: true do 
-  let(:user) { FactoryGirl.create :user }
-
   before :each do
     user_login
   end
