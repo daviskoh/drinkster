@@ -38,12 +38,20 @@ describe 'User API' do
   end
 
   it 'allows you to remove an ingredient' do 
+    api_login
+
+    add_ingredient
+
     remove_ingredient
 
     expect(User.last.ingredients.count).to eq 0
   end
 
   it 'does not remove ingredient from db' do 
+    api_login
+
+    add_ingredient
+    
     remove_ingredient
 
     expect(Ingredient.count).to eq 1
