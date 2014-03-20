@@ -25,6 +25,4 @@ describe 'add ingredient', js: true do
 
     expect(@user.ingredients.last.name).to eq 'whiskey'
   end
-
-  it 'shows current user\'s ingredients'
 end
