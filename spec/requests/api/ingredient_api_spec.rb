@@ -47,8 +47,6 @@ describe 'User API' do
 
     post "/api/users/#{id}/ingredients", ingredient_params, request_headers
 
-    resp = JSON.parse response.body
-
     expect(User.find(id).ingredients.last.name).to eq 'whiskey'
   end
 
