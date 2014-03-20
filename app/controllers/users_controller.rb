@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def authorized!
     unless @user.id == session[:user_id]
-      return render status: :unauthorized
+      return render text: 'not authorized', status: :unauthorized
     end
   end
 

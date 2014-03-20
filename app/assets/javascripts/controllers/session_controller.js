@@ -13,8 +13,10 @@ Drinkster.controller('SessionCtrl', ['$scope', '$http', '$location', function($s
 
       $scope.loggedIn = true;
 
+      // create show page / profile
       // acquire user params
-      // redirect to /users/user.id
+      // redirect to /users/user.id / show page
+        // render data
     });
   };
 

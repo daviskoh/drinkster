@@ -17,15 +17,20 @@ Drinkster.config(['$routeProvider', '$locationProvider', '$httpProvider',
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 
     $routeProvider.
+      when('/session/new', {
+        templateUrl: '../assets/session/new.html',
+        controller: 'SessionCtrl',
+        controllerAs: 'session'
+      }).
       when('/users/new', {
         templateUrl: '../assets/user/new.html',
         controller: 'UserCtrl',
         controllerAs: 'user'
       }).
-      when('/session/new', {
-        templateUrl: '../assets/session/new.html',
-        controller: 'SessionCtrl',
-        controllerAs: 'session'
+      when('/users/:id', {
+        templateUrl: '../assets/user/show.html',
+        controller: 'UserCtrl',
+        controllerAs: 'user'
       }).
       otherwise({
         templateUrl: '../assets/new.html',

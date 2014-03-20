@@ -5,7 +5,7 @@ module SessionsHelper
 
   def authenticated!
     unless logged_in?
-      return render status: 401
+      return render text: 'not authorized', status: 401
     end
   end
 

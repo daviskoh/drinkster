@@ -42,4 +42,12 @@ describe 'User API' do
     resp = JSON.parse response.body
     expect(resp['email']).to eq('bob@bob.com')
   end
+
+  it 'denies retrieval of specific user info' do 
+    user = FactoryGirl.create :user
+
+    get "/api/users/#{user.id}", {}, request_headers
+
+    expect(response.status).to eq 401
+  end
 end
