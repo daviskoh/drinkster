@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'add ingredient', js: true do 
   before :all do 
-    FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:user)
   end
 
   after :all do 
@@ -21,6 +21,8 @@ describe 'add ingredient', js: true do
       click_button 'Add Ingredient'
     end
 
-    expect(user.ingredients.first.name).to eq 'whiskey'
+    expect(@user.ingredients.first.name).to eq 'whiskey'
   end
+
+  it 'shows current user\'s ingredients'
 end

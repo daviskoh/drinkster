@@ -10,6 +10,7 @@ describe 'sign up', js: true do
   end
 
   it 'should create a new user' do
+    sleep 2
     expect(User.last.email).to eq('d@d.com')
   end
 
