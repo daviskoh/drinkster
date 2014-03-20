@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe 'sign up', js: true do 
   before :each do
-    User.destroy_all
-
     visit '/users/new'
 
     within 'form.new-user' do 
@@ -13,10 +11,6 @@ describe 'sign up', js: true do
 
       click_button 'Sign Up'
     end
-  end
-
-  after :each do 
-    User.destroy_all
   end
 
   it 'should create a new user' do
