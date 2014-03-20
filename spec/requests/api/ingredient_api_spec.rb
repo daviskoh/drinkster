@@ -1,13 +1,6 @@
 require 'spec_helper'
 
 describe 'User API' do 
-  let(:user_params) { 
-    { user: {
-      email: 'bob@bob.com', password: 'bob', password_confirmation: 'bob'
-      }
-    }.to_json
-  }
-
   let(:ingredient_params) {
     { ingredient: { name: 'whiskey' } }.to_json
   }

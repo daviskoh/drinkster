@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe 'User API' do 
-  # let(:request_headers) {
-  #   { "Accept" => "application/json", "Content-Type" => "application/json" }
-  # }
-
   let(:user_params) { 
     { user: {
       email: 'bob@bob.com', password: 'bob', password_confirmation: 'bob'
