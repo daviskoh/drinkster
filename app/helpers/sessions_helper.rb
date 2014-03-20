@@ -5,7 +5,6 @@ module SessionsHelper
 
   def authenticated!
     unless logged_in?
-      # redirect_to new_session_path
       return render status: 401
     end
   end

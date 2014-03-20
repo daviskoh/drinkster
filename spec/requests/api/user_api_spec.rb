@@ -16,6 +16,10 @@ describe 'User API' do
     { email: 'bob@bob.com', password: 'bob' }.to_json
   }
 
+  before :each do 
+    User.destroy_all
+  end
+
   after :each do
     User.destroy_all
   end
@@ -32,15 +36,10 @@ describe 'User API' do
     FactoryGirl.create :user
 
     post '/api/session', login_params, request_headers
-
-    get '/api/users/1', {}, request_headers
-
+    get "/api/users/#{response.body}", {}, request_headers
     expect(response).to be_success
 
     resp = JSON.parse response.body
-
     expect(resp['email']).to eq('bob@bob.com')
   end
-
-  it 'denies access to unauthorized'
 end

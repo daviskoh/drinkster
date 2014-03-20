@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
-  before_action :authenticated!, :set_user, except: [:create]
+  before_action :authenticated!, :set_user, :authorized!, except: [:create]
 
   def create
     @user = User.new(user_params)
 
     if @user.save
-      render json: secure_user.as_json, status: 200
+      render json: secure_user.as_json, status: 201
     else
       render status: :unprocessable_entity
     end
   end
 
   def show
-    render json: secure_user
+    render json: secure_user, status: 200
   end
 
   private
@@ -23,6 +23,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def authorized!
+    unless @user.id == session[:user_id]
+      return render status: :unauthorized
+    end
   end
 
   def secure_user
