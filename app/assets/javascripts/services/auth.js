@@ -20,7 +20,7 @@ Drinkster.factory('Auth', ['$http', '$location', '$rootScope',
       },
       logOut: function() {
         $http.delete('/api/session').success(function() {
-          window.currentUser = null;
+          window.currentUser.id = null;
 
           $location.path('/session/new');
         });

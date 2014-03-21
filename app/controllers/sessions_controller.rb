@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
 
       render json: session[:user_id], status: 201
     else
+      puts "PARAMS #{params}"
+
       render json: {"text" => 'Incorrect email and password combination'}, status: 400
     end
   end

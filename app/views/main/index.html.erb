@@ -1,4 +1,4 @@
-<script>var currentUser = {};</script>
+<script>var currentUser = {id: null};</script>
 <% if logged_in? %>
   <script>currentUser.id = <%= session[:user_id] %></script>
 <% end %>
