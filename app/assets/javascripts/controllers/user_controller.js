@@ -59,7 +59,12 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$routeParams'
     };
 
     $scope.getAllDrinks = function() {
+      $http.get('/api/users/' + $routeParams.id + '/drinks.json', {}).success(function(resp) {
+        console.log('retrieved all Drinks');
+        console.log(arguments);
 
+        $scope.drinks = resp;
+      });
     };
 
     // fetch page-revelant info
