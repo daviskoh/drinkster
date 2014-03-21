@@ -4,11 +4,8 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-
       render json: session[:user_id], status: 201
     else
-      puts "PARAMS #{params}"
-
       render json: {"text" => 'Incorrect email and password combination'}, status: 400
     end
   end

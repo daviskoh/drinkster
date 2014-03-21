@@ -2,10 +2,13 @@ require 'spec_helper'
 
 describe 'show drinks', js: true do 
   context 'database is preseed with makeable drinks' do 
-    # let!(:drink) { FactoryGirl.create(:gin_tonic) }
-    # let!(:gin) { FactoryGirl.create(:ingredient2) }
-    # let!(:tonic) { FactoryGirl.create(:ingredient3) }
-    let!(:user) { FactoryGirl.create(:user) }
+    let!(:drink) { FactoryGirl.create(:gin_tonic) }
+    let!(:gin) { FactoryGirl.create(:ingredient2) }
+    let!(:tonic) { FactoryGirl.create(:ingredient3) }
+    
+    before :all do 
+      @user = FactoryGirl.create(:user)
+    end
 
     after :all do 
       Ingredient.destroy_all
@@ -13,11 +16,11 @@ describe 'show drinks', js: true do
     end
 
     before :each do 
-      # drink.ingredients << gin
-      # drink.ingredients << tonic
+      drink.ingredients << gin
+      drink.ingredients << tonic
 
-      # user.ingredients << gin
-      # user.ingredients << tonic
+      @user.ingredients << gin
+      @user.ingredients << tonic
 
       user_login
     end
