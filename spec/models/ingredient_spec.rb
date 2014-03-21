@@ -9,7 +9,7 @@ describe Ingredient do
 
   it { should have_and_belong_to_many(:users) }
 
-  it { should have_and_belong_to_many(:drinks) }
+  it { should have_many(:drinks).through(:components) }
 
   it 'should be able to check whether an ingredient exists' do 
     expect(Ingredient.exist?(ingredient.name)).to be_true
@@ -24,7 +24,9 @@ describe Ingredient do
       gin_tonic.ingredients << gin
       gin_tonic.ingredients << tonic
 
-      Component.first.parts += 3
+      component = Component.first
+      component.parts = 3
+      component.save
     end
 
     it 'should tell how many parts of itself are required to make a drink' do 

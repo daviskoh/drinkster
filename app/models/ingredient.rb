@@ -9,4 +9,8 @@ class Ingredient < ActiveRecord::Base
   def self.exist?(ingredientName)
     Ingredient.find_by(name: ingredientName) ? true : false
   end
+
+  def parts_of(drink)
+    Component.find_by(drink_id: drink.id, ingredient_id: self.id).parts
+  end
 end
