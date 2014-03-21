@@ -1,5 +1,6 @@
 class Drink < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
 
-  has_and_belongs_to_many :ingredients
+  has_many :components
+  has_many :ingredients, through: :components
 end
