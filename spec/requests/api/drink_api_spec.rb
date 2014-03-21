@@ -25,7 +25,7 @@ describe 'Drink API' do
     expect(resp).to have(1).drink
   end
 
-  it 'returns instructions on how to make'
-
-  it 'include how much of each ingredient to make'
+  it 'includes how much of each ingredient to make' do 
+    
+  end
 end

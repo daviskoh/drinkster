@@ -33,13 +33,16 @@
 
         <ul class='drinks list'>
           <li ng-repeat='drink in drinks'>
-            <p>{{drink.name[0].toUpperCase() + drink.name.substring(1)}}</p>
+            <p class='drinkName'>{{drink.name[0].toUpperCase() + drink.name.substring(1)}}</p>
+
             <p>Ingredients</p>
             <ul class='list'>
               <li ng-repeat='ing in drink.ingredients'>
                 {{ing.name}}
               </li>
             </ul>
+
+            <p ng-show='{{drink.instructions}}' class='instructions'>Instructions: {{drink.instructions}}</p>
           </li>
         </ul>  
       </div>
