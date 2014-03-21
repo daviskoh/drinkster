@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'show drinks', js: true do 
-  context 'database is preseed with makeable drinks' do 
+  context 'database is preseeded with makeable drinks' do 
     before :all do 
       @drink = FactoryGirl.create(:gin_tonic)
       @gin = FactoryGirl.create(:ingredient2)
