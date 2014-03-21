@@ -15,11 +15,13 @@ describe 'Drink API' do
     Drink.destroy_all
   end
 
-  it 'returns list of makeable drinks' do 
+  before :each do 
     api_login
 
     get user_drinks_path(@user.id), {}, request_headers
+  end
 
+  it 'returns list of makeable drinks' do
     resp = JSON.parse(response.body)
 
     expect(resp).to have(1).drink
