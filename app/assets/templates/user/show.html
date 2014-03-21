@@ -36,9 +36,10 @@
             <p class='drinkName'>{{drink.name[0].toUpperCase() + drink.name.substring(1)}}</p>
 
             <p>Ingredients</p>
-            <ul class='list'>
-              <li ng-repeat='ing in drink.ingredients'>
-                {{ing.name}}
+            <ul class='components list'>
+              <li ng-repeat='ing in drink.component_list'>
+                <p>Ingredient: {{ing.name}}</p>
+                <p>Parts: {{ing.parts}}</p>
               </li>
             </ul>
 
