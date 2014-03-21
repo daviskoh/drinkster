@@ -20,7 +20,13 @@ describe Ingredient do
     let(:gin) { FactoryGirl.create :ingredient2 }
     let(:tonic) { FactoryGirl.create :ingredient3 }
 
+    after :all do 
+      Component.destroy_all
+    end
+
     before :each do 
+      Component.destroy_all
+
       gin_tonic.ingredients << gin
       gin_tonic.ingredients << tonic
 

@@ -2,11 +2,13 @@ require 'spec_helper'
 
 describe 'Drink API' do 
   before :all do 
-    FactoryGirl.create(:gin_tonic)
+    @drink = FactoryGirl.create(:gin_tonic)
     @user = FactoryGirl.create(:user)
 
-    @user.ingredients << FactoryGirl.create(:ingredient2)
-    @user.ingredients << FactoryGirl.create(:ingredient3)
+    [FactoryGirl.create(:ingredient2), FactoryGirl.create(:ingredient3)].each do |ing|
+      @drink.ingredients << ing
+      @user.ingredients << ing
+    end
   end
 
   after :all do 
@@ -28,6 +30,8 @@ describe 'Drink API' do
   end
 
   it 'includes how much of each ingredient to make' do 
-    
+    resp = JSON.parse(response.body)
+
+    binding.pry
   end
 end
