@@ -58,7 +58,7 @@ describe 'User API' do
   end
 
   it 'denies unauthorized removing' do 
-    add_ingredient_manually
+    add_ingredient_manually # returns @user who now has an ingredient
 
     remove_ingredient
 
@@ -66,6 +66,16 @@ describe 'User API' do
   end
 
   it 'allows retrieval of a user\'s ingredients' do 
+    api_login
 
+    id = response.body
+
+    add_ingredient
+
+    get user_ingredients_path(id), {}, request_headers
+
+    resp = JSON.parse(response.body)
+
+    expect(resp).to have(1).ingredients
   end
 end

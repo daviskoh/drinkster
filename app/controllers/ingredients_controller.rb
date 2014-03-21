@@ -1,6 +1,10 @@
 class IngredientsController < ApplicationController
   before_action :authenticated!, :set_user, :authorized!
 
+  def index
+    render json: @user.ingredients.order(name: :asc), status: 200
+  end
+
   def create
     ingredient = Ingredient.new(ingredient_params)
 
