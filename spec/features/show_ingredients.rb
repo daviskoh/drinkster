@@ -20,4 +20,12 @@ describe 'show ingredients', js: true do
       expect(page).to have_content 'Whiskey'
     end
   end
+
+  it 'immediately renders added ingredient' do 
+    input_new_ingredient('vodka')
+
+    within 'ul.ingredients' do 
+      expect(page).to have_content 'Vodka'
+    end
+  end
 end

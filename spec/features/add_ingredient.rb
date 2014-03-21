@@ -11,6 +11,7 @@ describe 'add ingredient', js: true do
   end
 
   before :each do
+    Ingredient.destroy_all
     user_login
   end
 
@@ -21,6 +22,4 @@ describe 'add ingredient', js: true do
 
     expect(@user.ingredients.last.name).to eq 'whiskey'
   end
-
-  it 'immediately renders added ingredient'
 end

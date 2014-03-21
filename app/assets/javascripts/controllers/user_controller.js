@@ -33,6 +33,10 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
       $http.post('/api/users/' + window.currentUser + '/ingredients.json', $scope.getIngredientData()).success(function() {
         console.log('created Ingredient');
         console.log(arguments);
+
+        $scope.ingredientName = '';
+
+        $scope.getAllIngredients();
       });
     };
 
