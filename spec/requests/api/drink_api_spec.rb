@@ -17,11 +17,15 @@ describe 'Drink API' do
 
   it 'returns list of makeable drinks' do 
     api_login
-    
+
     get user_drinks_path(@user.id), {}, request_headers
 
     resp = JSON.parse(response.body)
 
     expect(resp).to have(1).drink
   end
+
+  it 'returns instructions on how to make'
+
+  it 'include how much of each ingredient to make'
 end

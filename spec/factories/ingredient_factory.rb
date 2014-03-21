@@ -10,4 +10,8 @@ FactoryGirl.define do
   factory :ingredient3, class: Ingredient do 
     name 'tonic water'
   end
+
+  factory :lime_juice, class: Ingredient do 
+    name 'lime_juice'
+  end
 end
