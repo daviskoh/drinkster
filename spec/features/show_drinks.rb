@@ -23,6 +23,10 @@ describe 'show drinks', js: true do
       @c2 = Component.last
       @c2.parts = 1
       @c2.save
+
+      @gimlet = FactoryGirl.create(:gimlet)
+      @gimlet.ingredients << Ingredient.first
+      @gimlet.ingredients << FactoryGirl.create(:lime_juice)
     end
 
     after :all do 
@@ -43,11 +47,17 @@ describe 'show drinks', js: true do
     end
 
     it 'shows parts of each ingredient of a drink' do 
-      within 'ul.components' do 
+      within 'ul.drinks' do 
         expect(page).to have_content 'Parts: 3'
       end
     end
 
-    it 'updates makeable drinks when a new ingredient added'
+    it 'updates makeable drinks when a new ingredient added' do 
+      input_new_ingredient('lime juice')
+
+      within 'ul.drinks' do 
+        expect(page).to have_content 'Gimlet'
+      end
+    end
   end
 end

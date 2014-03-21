@@ -46,6 +46,7 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$routeParams'
         $scope.ingredientName = '';
 
         $scope.getAllIngredients();
+        $scope.getAllDrinks();
       });
     };
 

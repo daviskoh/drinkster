@@ -12,6 +12,6 @@ FactoryGirl.define do
   end
 
   factory :lime_juice, class: Ingredient do 
-    name 'lime_juice'
+    name 'lime juice'
   end
 end
