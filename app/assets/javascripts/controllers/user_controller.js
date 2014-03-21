@@ -10,6 +10,15 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
       };
     };
 
+    $scope.getUserInfo = function() {
+      $http.get('/api/users/' +  window.currentUser.id + '.json').success(function(resp) {
+        console.log('retrieved user info');
+        console.log(arguments);
+
+        $scope.currentUserEmail = resp.email;
+      });
+    };
+
     $scope.getIngredientData = function() {
       return {
         'ingredient': {
@@ -27,10 +36,8 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
       });
     };
 
-    $scope.currentUserEmail = $rootScope.user;
-
     $scope.addIngredient = function() {
-      $http.post('/api/users/' + window.currentUser + '/ingredients.json', $scope.getIngredientData()).success(function() {
+      $http.post('/api/users/' + window.currentUser.id + '/ingredients.json', $scope.getIngredientData()).success(function() {
         console.log('created Ingredient');
         console.log(arguments);
 
@@ -41,7 +48,7 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
     };
 
     $scope.getAllIngredients = function() {
-      $http.get('/api/users/' + window.currentUser + '/ingredients.json', {}).success(function(resp) {
+      $http.get('/api/users/' + window.currentUser.id + '/ingredients.json', {}).success(function(resp) {
         console.log('retrieved all Ingredients');
         console.log(arguments);
 
@@ -49,5 +56,6 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
       });
     };
 
+    $scope.getUserInfo();
     $scope.getAllIngredients();
   }]);

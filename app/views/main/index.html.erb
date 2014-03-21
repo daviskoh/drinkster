@@ -1,7 +1,6 @@
+<script>var currentUser = {};</script>
 <% if logged_in? %>
-  <script>var currentUser = <%= session[:user_id] %></script>
-<% else %>
-  <script>var currentUser</script>
+  <script>currentUser.id = <%= session[:user_id] %></script>
 <% end %>
 
 <!-- Angular layout / what gets 'stuffed' -->
