@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'show ingredients', js: true do 
   before :all do 
     @user = FactoryGirl.create(:user)
+    @user.ingredients << FactoryGirl.create(:ingredient)
   end
 
   after :all do 
@@ -15,8 +16,6 @@ describe 'show ingredients', js: true do
   end
 
   it 'shows current user\'s ingredients' do 
-    @user.ingredients << FactoryGirl.create(:ingredient)
-
     within 'ul.ingredients' do 
       expect(page).to have_content 'Whiskey'
     end

@@ -27,7 +27,7 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
       });
     };
 
-    $scope.email = $rootScope.user;
+    $scope.currentUserEmail = $rootScope.user;
 
     $scope.addIngredient = function() {
       $http.post('/api/users/' + window.currentUser + '/ingredients.json', $scope.getIngredientData()).success(function() {
@@ -35,4 +35,15 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
         console.log(arguments);
       });
     };
+
+    $scope.getAllIngredients = function() {
+      $http.get('/api/users/' + window.currentUser + '/ingredients.json', {}).success(function(resp) {
+        console.log('retrieved all Ingredients');
+        console.log(arguments);
+
+        $scope.ingredients = resp;
+      });
+    };
+
+    $scope.getAllIngredients();
   }]);

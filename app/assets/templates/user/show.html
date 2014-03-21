@@ -1,7 +1,7 @@
 <div ng-include src="'../assets/navigation.html'"></div>
 
 <div class="large-8 large-centered columns">
-  <h1>Welcome {{email}}</h1>
+  <h1>Welcome {{currentUserEmail}}</h1>
 
   <div class="large-6 large-centered columns text-center">
     <h2>Add Ingredient</h2>
@@ -13,5 +13,15 @@
         <button ng-click='addIngredient()'>Add Ingredient</button>
       </fieldset>
     </form>
+
+    <div class='rows'>
+      <div class='large-10 large-centered columns text-center'>
+        <ul class='ingredients'>
+          <li ng-repeat='ingredient in ingredients'>
+            {{ingredient.name[0].toUpperCase() + ingredient.name.substring(1)}}
+          </li>
+        </ul>  
+      </div>
+    </div>
   </div>
 </div>
