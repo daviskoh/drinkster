@@ -78,4 +78,17 @@ describe 'User API' do
 
     expect(resp).to have(1).ingredients
   end
+
+  it 'add already existing ingredient to user upon request' do 
+    FactoryGirl.create(:ingredient)
+
+    api_login
+
+    id = response.body
+
+    add_ingredient(id)
+
+    expect(User.find(id).ingredients.last.name).to eq 'whiskey'
+    expect(Ingredient.count).to eq 1
+  end
 end

@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :authenticated!, :set_user, :authorized!
+  before_action :set_ingredient, only: [:create]
 
   def index
     render json: @user.ingredients.order(name: :asc), status: 200
@@ -8,12 +9,14 @@ class IngredientsController < ApplicationController
   def create
     ingredient = Ingredient.new(ingredient_params)
 
-    if ingredient.save
-      @user.ingredients << ingredient
-
+    if @ingredient
+      @user.ingredients << @ingredient
+      render json: @ingredient, status: 200
+    elsif ingredient.save 
+      @user.ingredients << ingredient  
       render json: ingredient, status: 200
     else
-      render json: ingredient, status: :unprocessable_entity
+      render text: 'unprocessable entity', status: :unprocessable_entity
     end
   end
 
@@ -36,5 +39,9 @@ class IngredientsController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_ingredient
+    @ingredient = Ingredient.find_by(name: params[:ingredient][:name])
   end
 end
