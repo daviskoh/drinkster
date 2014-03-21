@@ -30,5 +30,7 @@ describe 'show drinks', js: true do
         expect(page).to have_content 'Gin and tonic'
       end
     end
+
+    it 'updates makeable drinks when a new ingredient added'
   end
 end

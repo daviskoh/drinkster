@@ -58,6 +58,12 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$routeParams'
       });
     };
 
+    $scope.getAllDrinks = function() {
+
+    };
+
+    // fetch page-revelant info
     $scope.getUserInfo();
     $scope.getAllIngredients();
+    $scope.getAllDrinks();
   }]);

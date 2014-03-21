@@ -30,7 +30,9 @@
   <div class='rows'>
       <div class='large-10 large-centered columns text-center'>
         <ul class='drinks'>
-          
+          <li ng-repeat='drink in drinks'>
+            {{drink.name[0].toUpperCase() + drink.name.substring(1)}}
+          </li>
         </ul>  
       </div>
     </div>
