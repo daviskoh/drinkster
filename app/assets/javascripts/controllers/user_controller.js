@@ -1,5 +1,5 @@
-Drinkster.controller('UserCtrl', ['$scope', '$http', '$location',
-  function($scope, $http, $location) {
+Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$routeParams',
+  function($scope, $http, $location, $routeParams) {
     $scope.getUserData = function() {
       return {
         'user': {
@@ -13,11 +13,11 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location',
     $scope.getUserInfo = function() {
       // note, have access to user id in URL
 
-      $http.get('/api/users/' +  window.currentUser.id + '.json').success(function(resp) {
+      $http.get('/api/users/' + $routeParams.id + '.json').success(function(resp) {
         console.log('retrieved user info');
         console.log(arguments);
 
-        $scope.currentUserEmail = resp.email;
+        $scope.thisUsersEmail = resp.email;
       });
     };
 
@@ -50,7 +50,7 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location',
     };
 
     $scope.getAllIngredients = function() {
-      $http.get('/api/users/' + window.currentUser.id + '/ingredients.json', {}).success(function(resp) {
+      $http.get('/api/users/' + $routeParams.id + '/ingredients.json', {}).success(function(resp) {
         console.log('retrieved all Ingredients');
         console.log(arguments);
 
