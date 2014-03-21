@@ -1,5 +1,5 @@
-Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
-  function($scope, $http, $location, $rootScope) {
+Drinkster.controller('UserCtrl', ['$scope', '$http', '$location',
+  function($scope, $http, $location) {
     $scope.getUserData = function() {
       return {
         'user': {
