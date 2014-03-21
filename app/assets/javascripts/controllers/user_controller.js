@@ -11,6 +11,8 @@ Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$rootScope',
     };
 
     $scope.getUserInfo = function() {
+      // note, have access to user id in URL
+
       $http.get('/api/users/' +  window.currentUser.id + '.json').success(function(resp) {
         console.log('retrieved user info');
         console.log(arguments);

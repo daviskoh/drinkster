@@ -17,6 +17,7 @@
       <li ng-show='!isLoggedIn'><a href="/users/new"><i class='fi-torso'></i>Create Account</a></li>
       <li ng-show='!isLoggedIn' class="divider"></li>
 
+      <li ng-show='isLoggedIn'><a href="/users/{{currentUser.id}}">Profile</a></li>
       <li ng-show='isLoggedIn'><a href="/session/new" ng-click="logOut()"><i class='fi-torso'></i>Log Out</a></li>
     </ul>
   </section>
