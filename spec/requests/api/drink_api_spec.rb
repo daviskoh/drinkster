@@ -32,6 +32,9 @@ describe 'Drink API' do
   it 'includes how much of each ingredient to make' do 
     resp = JSON.parse(response.body)
 
-    binding.pry
+    # javascript style
+    resp.first['component_list'].each do |component|
+      expect(component['parts']).to_not be_nil
+    end
   end
 end

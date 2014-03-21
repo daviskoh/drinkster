@@ -6,7 +6,7 @@ class Drink < ActiveRecord::Base
 
   def component_list
     self.ingredients.each_with_object([]) do |ing, list|
-      list << {ingredient: ing.name, parts: ing.parts_of(self)}
+      list << {name: ing.name, parts: ing.parts_of(self)}
     end
   end
 end
