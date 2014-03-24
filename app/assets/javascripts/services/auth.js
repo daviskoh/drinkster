@@ -1,4 +1,4 @@
-Drinkster.factory('Auth', ['$http', '$location', '$rootScope',
+angular.module('Drinkster').factory('Auth', ['$http', '$location', '$rootScope',
   function($http, $location, $rootScope) {
     return {
       isLoggedIn: function() {

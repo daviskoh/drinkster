@@ -1,4 +1,4 @@
-Drinkster.controller('UserCtrl', ['$scope', '$http', '$location', '$routeParams',
+angular.module('Drinkster').controller('UserCtrl', ['$scope', '$http', '$location', '$routeParams',
   function($scope, $http, $location, $routeParams) {
     $scope.getUserData = function() {
       return {

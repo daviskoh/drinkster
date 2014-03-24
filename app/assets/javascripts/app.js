@@ -2,13 +2,13 @@
 //= require_tree ./controllers/.
 //= require_tree ./services/.
 
-var Drinkster = angular.module('Drinkster', [
+angular.module('Drinkster', [
   // module dependencies
   'ngRoute',
   'ngResource'
 ]);
 
-Drinkster.config(['$routeProvider', '$locationProvider', '$httpProvider',
+angular.module('Drinkster').config(['$routeProvider', '$locationProvider', '$httpProvider',
   function($routeProvider, $locationProvider, $httpProvider) {
     // use HTML5 pushstate to similuate real-looking URL
     $locationProvider.html5Mode(true);

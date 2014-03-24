@@ -1,4 +1,4 @@
-Drinkster.controller('SessionCtrl', ['$scope', '$rootScope', '$http', '$location', 'Auth',
+angular.module('Drinkster').controller('SessionCtrl', ['$scope', '$rootScope', '$http', '$location', 'Auth',
   function($scope, $rootScope, $http, $location, Auth) {
     $scope.getData = function() {
       return {

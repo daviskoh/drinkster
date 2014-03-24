@@ -1,4 +1,4 @@
-Drinkster.controller('NavigationCtrl', ['$scope', 'Auth',
+angular.module('Drinkster').controller('NavigationCtrl', ['$scope', 'Auth',
   function($scope, Auth) {
     $scope.currentUser = window.currentUser;
 
